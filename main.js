@@ -183,9 +183,38 @@ const displayManufacturingBusinesses = () => {
   })
 }
 
+outEl.innerHTML += "<h1>Purchasing Agents</h1>";
+
+const agents = businesses.map(business => {
+    return business.purchasingAgent
+})
+
+console.table(agents)
+
+agents.forEach(agent => {
+  outEl.innerHTML += `<h2>${agent.nameFirst} ${agent.nameLast}</h2>`;
+  outEl.innerHTML += "<hr/>";
+});
+
 const domEvents = () => {
   $("#nyBtn").click(displayNYBusinesses);
   $("#manufacturingBtn").click(displayManufacturingBusinesses);
 }
 
 domEvents();
+
+const monthlyRainfall = [23, 13, 27, 20, 20, 31, 33, 26, 19, 12, 14, 12, 10]
+
+const totalRainfall = monthlyRainfall.reduce(
+  (totalRain, monthlyRain) => totalRain += monthlyRain, 0
+)
+
+console.log(totalRainfall)
+
+const words = ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+
+const sentence = words.reduce(
+  (sentence, nextWord)  => sentence += ` ${nextWord}`, ""
+)
+
+console.log(sentence)
